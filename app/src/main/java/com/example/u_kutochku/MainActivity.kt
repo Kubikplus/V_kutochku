@@ -10,6 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.u_kutochku.navigation.SetupNavHost
 import com.example.u_kutochku.ui.theme.U_kutochkuTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,27 +19,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             U_kutochkuTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
+               val navController = rememberNavController()
+                SetupNavHost(navController = navController )
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    U_kutochkuTheme {
-        Greeting("Android")
-    }
-}
